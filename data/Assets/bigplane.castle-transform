@@ -1,0 +1,41 @@
+{
+  "$$ClassName" : "TCastleScene",
+  "AutoAnimation" : "Recto",
+  "ExposeTransforms" : [
+  ],
+  "Name" : "bigplane",
+  "ProcessEvents" : true,
+  "RenderOptions" : {
+    "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+  },
+  "RotationPersistent" : {
+    "$$ClassName" : "TCastleVector4RotationPersistent",
+    "Z" : 1.0000000000000000E+000
+  },
+  "ScalePersistent" : {
+    "$$ClassName" : "TCastleVector3Persistent",
+    "X" : 3.0000000000000000E+000,
+    "Y" : 3.0000000000000000E+000,
+    "Z" : 3.0000000000000000E+000
+  },
+  "URL" : "castle-data:/Sprites/BigPlane.castle-sprite-sheet",
+  "$Behaviors" : [
+    {
+      "$$ClassName" : "TCastleBoxCollider",
+      "Mode2D" : true,
+      "Name" : "BoxCollider1"
+    },
+    {
+      "$$ClassName" : "TCastleRigidBody",
+      "Gravity" : false,
+      "LockRotation" : [
+        0,
+        1
+      ],
+      "LockTranslation" : [
+        2
+      ],
+      "Name" : "RigidBody1"
+    }
+  ]
+}

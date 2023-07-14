@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Player.png">
+  <SubTexture x="0" y="1000" fps="8" name="Recto_1" width="26" height="24"/>
+  <SubTexture x="26" y="1000" fps="8" name="Izq1_1" width="26" height="24"/>
+  <SubTexture x="52" y="1000" fps="8" name="Izq2_1" width="26" height="24"/>
+  <SubTexture x="78" y="1000" fps="8" name="der1_1" width="26" height="24"/>
+  <SubTexture x="104" y="1000" fps="8" name="der2_1" width="23" height="24"/>
+</TextureAtlas>

@@ -1,0 +1,37 @@
+{
+  "$$ClassName" : "TCastleScene",
+  "AutoAnimation" : "Recto",
+  "ExposeTransforms" : [
+  ],
+  "Name" : "Player",
+  "ProcessEvents" : true,
+  "RenderOptions" : {
+    "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+  },
+  "ScalePersistent" : {
+    "$$ClassName" : "TCastleVector3Persistent",
+    "X" : 3.0000000000000000E+000,
+    "Y" : 3.0000000000000000E+000,
+    "Z" : 3.0000000000000000E+000
+  },
+  "URL" : "castle-data:/Sprites/Player.castle-sprite-sheet",
+  "$Behaviors" : [
+    {
+      "$$ClassName" : "TCastleBoxCollider",
+      "Mode2D" : true,
+      "Name" : "BoxCollider1"
+    },
+    {
+      "$$ClassName" : "TCastleRigidBody",
+      "Gravity" : false,
+      "LockRotation" : [
+        0,
+        1
+      ],
+      "LockTranslation" : [
+        2
+      ],
+      "Name" : "RigidBody1"
+    }
+  ]
+}

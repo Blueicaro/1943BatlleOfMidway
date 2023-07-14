@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BigPlane.png">
+  <SubTexture x="0" y="967" fps="8" name="Recto_1" width="56" height="57"/>
+  <SubTexture x="56" y="967" fps="8" name="Izq_1" width="56" height="57"/>
+  <SubTexture x="112" y="967" fps="8" name="Der_1" width="56" height="57"/>
+</TextureAtlas>
