@@ -107,12 +107,12 @@ begin
   LabelFps.Caption := 'FPS: ' + Container.Fps.ToString;
   for I := View.Items.Count - 1 downto 0 do
   begin
-     if View.Items[I].Visible = False then
+    if View.Items[I].Visible = False then
     begin
       if View.Items[I] is TCastleTransform then
       begin
-       if View.Items[I] <> nil then
-          View.Items[I].free;
+        if View.Items[I] <> nil then
+          View.Items[I].Free;
       end;
     end;
 
@@ -122,8 +122,9 @@ end;
 
 function TViewMain.Press(const Event: TInputPressRelease): boolean;
 var
-  Bullet: TCastleTransform;
+
   BulletBehavior: TBulletBehavior;
+  Bullet: TCastleTransform;
 begin
   Result := inherited;
   if Result then Exit; // allow the ancestor to handle keys
@@ -163,7 +164,8 @@ begin
   PlayerBehavior.Press(Event.Key);
   if Event.IsKey(keySpace) then
   begin
-    Bullet := TransformLoad('castle-data:/Assets/bullet.castle-transform', FreeAtStop);
+    Bullet := TransformLoad('castle-data:/Assets/bullet.castle-transform',
+      FreeAtStop);
     Bullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 40);
     BulletBehavior := TBulletBehavior.Create(FreeAtStop);
     Bullet.AddBehavior(BulletBehavior);

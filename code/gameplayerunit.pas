@@ -62,12 +62,10 @@ begin
    inherited Update(SecondsPassed, RemoveMe);
    //Si sale de la pantalla lo borramos
    //If I left the screen (camera)
+
   if (Parent.TranslationXY.y > Area.Arriba + 100 )  then
   begin
-
-    Parent.RemoveDelayed(self.Parent, True);
-
-    exit;
+   Parent.Parent.RemoveDelayed(Self.Parent,true);
   end;
 
   with Parent do

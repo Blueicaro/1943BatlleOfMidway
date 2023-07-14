@@ -36,6 +36,7 @@ type
 var
   ViewMain: TViewMain;
   PlayerBehavior: TPlayerBehavior;
+  Bullet: TCastleTransform;
 
 implementation
 
@@ -79,7 +80,7 @@ begin
     Abajo := -View.EffectiveHeight / 2;
   end;
 
-
+  Bullet := TransformLoad('castle-data:/Assets/bullet.castle-transform', FreeAtStop);
 
 
   //Crear player
@@ -107,12 +108,12 @@ begin
   LabelFps.Caption := 'FPS: ' + Container.Fps.ToString;
   for I := View.Items.Count - 1 downto 0 do
   begin
-     if View.Items[I].Visible = False then
+    if View.Items[I].Visible = False then
     begin
       if View.Items[I] is TCastleTransform then
       begin
-       if View.Items[I] <> nil then
-          View.Items[I].free;
+        if View.Items[I] <> nil then
+          View.Items[I].Free;
       end;
     end;
 
@@ -121,9 +122,8 @@ begin
 end;
 
 function TViewMain.Press(const Event: TInputPressRelease): boolean;
-
 var
-  Bullet: TCastleTransform;
+
   BulletBehavior: TBulletBehavior;
 begin
   Result := inherited;
@@ -164,7 +164,7 @@ begin
   PlayerBehavior.Press(Event.Key);
   if Event.IsKey(keySpace) then
   begin
-    Bullet := TransformLoad('castle-data:/Assets/bullet.castle-transform', FreeAtStop);
+
     Bullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 40);
     BulletBehavior := TBulletBehavior.Create(FreeAtStop);
     Bullet.AddBehavior(BulletBehavior);

@@ -34,7 +34,7 @@ type
   private
     Speed: single;
     Area: TLimites;
-    deleted : Boolean;
+
   public
     constructor Create(AOwner: TComponent); override;
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
@@ -52,21 +52,22 @@ begin
   inherited Create(AOwner);
   Speed := 300.0;
   Area := Limite;
-  deleted := false;
+
 end;
 
 procedure TBulletBehavior.Update(const SecondsPassed: single;
   var RemoveMe: TRemoveType);
 begin
-  if deleted = true then exit;
+
    inherited Update(SecondsPassed, RemoveMe);
    //Si sale de la pantalla lo borramos
-  if (Parent.TranslationXY.y > Area.Arriba + 100 ) and (deleted = false) then
-  begin
-     deleted := true;
-    Parent.RemoveDelayed(self.Parent, True);
+   //If I left the screen (camera)
 
-    exit;
+  if (Parent.TranslationXY.y > Area.Arriba + 100 )  then
+  begin
+   Parent.Parent.RemoveDelayed(Self.Parent,true);
+    //RemoveMe:=rtRemoveAndFree;
+   // exit;
   end;
 
   with Parent do
