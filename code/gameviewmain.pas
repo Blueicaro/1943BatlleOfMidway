@@ -46,10 +46,21 @@ uses SysUtils, CastleLog, Gameenemigyunit, Gamegeneral;
 procedure TViewMain.CreateEnemyLevel2;
 var
   Enemy: TCastleTransform;
+  Cuerpo: TCastleRigidBody;
+  EnemyBehavior: TEnemyBigPlane;
 begin
   Enemy := TransformLoad('castle-data:/Assets/bigplane.castle-transform', FreeAtStop);
   Enemy.TranslationXY := Vector2(0, 600);
-  Enemy.AddBehavior(TEnemyBigPlane.Create(FreeAtStop));
+  Enemy.Collides := True;
+  EnemyBehavior := TEnemyBigPlane.Create(FreeAtStop);
+  Enemy.AddBehavior(EnemyBehavior);
+  Cuerpo := Enemy.FindBehavior(TCastleRigidBody) as TCastleRigidBody;
+  {$IFDEF FPC}
+  Cuerpo.OnCollisionEnter:=@EnemyBehavior.Collision;
+  {$ELSE}
+  Cuerpo.OnCollisionStay := EnemyBehavior.Collision;
+  {$ENDIF}
+
   View.Items.Add(Enemy);
 
 end;
@@ -107,17 +118,14 @@ begin
   LabelFps.Caption := 'FPS: ' + Container.Fps.ToString;
   for I := View.Items.Count - 1 downto 0 do
   begin
-    if View.Items[I].Visible = False then
+    if View.Items[I].Exists = False then
     begin
-      if View.Items[I] is TCastleTransform then
-      begin
-        if View.Items[I] <> nil then
-          View.Items[I].Free;
-      end;
+      WritelnLog(IntToStr(I)+':'+View.Items[I].Name);
+      View.Items.Delete(I);
     end;
 
   end;
-  WritelnLog(IntToStr(View.Items.Count));
+  //WritelnLog(IntToStr(View.Items.Count));
 end;
 
 function TViewMain.Press(const Event: TInputPressRelease): boolean;
@@ -125,6 +133,7 @@ var
 
   BulletBehavior: TBulletBehavior;
   Bullet: TCastleTransform;
+  Cuerpo: TCastleRigidBody;
 begin
   Result := inherited;
   if Result then Exit; // allow the ancestor to handle keys
@@ -151,24 +160,21 @@ begin
   begin
     Halt(0);
   end;
-  //if Event.IsKey(keyArrowLeft) then
-  //begin
-  //  PlayerBehavior.Press(keyArrowLeft);
-  //  Exit(True);
-  //end;
-  //if Event.IsKey(keyArrowRight) then
-  //begin
-  //  PlayerBehavior.Press(keyArrowRight);
-  //  Exit(True);
-  //end;
+
   PlayerBehavior.Press(Event.Key);
   if Event.IsKey(keySpace) then
   begin
     Bullet := TransformLoad('castle-data:/Assets/bullet.castle-transform',
       FreeAtStop);
-    Bullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 40);
+    Bullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 100);
     BulletBehavior := TBulletBehavior.Create(FreeAtStop);
     Bullet.AddBehavior(BulletBehavior);
+    Cuerpo := Bullet.FindBehavior(TCastleRigidBody) as TCastleRigidBody;
+  {$IFDEF FPC}
+  Cuerpo.OnCollisionStay:=@BulletBehavior.collision;
+  {$ELSE}
+    Cuerpo.OnCollisionEnter := BulletBehavior.collision;
+  {$ENDIF}
     View.Items.Add(Bullet);
     Exit(True);
   end;
@@ -177,7 +183,7 @@ begin
     CreateEnemyLevel2;
     Exit(True);
   end;
-  Exit(True);
+
 end;
 
 //Cuando se suelta una tecla o un botón del teclado

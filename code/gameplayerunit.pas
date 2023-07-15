@@ -38,7 +38,7 @@ type
   public
     constructor Create(AOwner: TComponent); override;
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
-
+    procedure Collision(const CollisionDetails: TPhysicsCollisionDetails);
   end;
 
 implementation
@@ -59,13 +59,20 @@ procedure TBulletBehavior.Update(const SecondsPassed: single;
   var RemoveMe: TRemoveType);
 begin
 
-   inherited Update(SecondsPassed, RemoveMe);
-   //Si sale de la pantalla lo borramos
-   //If I left the screen (camera)
+  inherited Update(SecondsPassed, RemoveMe);
+   {
+   Si sale de la pantalla lo borramos el componente que se generó con TransformLoad.
+   Que es el padre de todos. De él desciende TCastleScene, y TCastleBehavior.
+   Indicamos al padre que borre todo, y y así mismo.
+   }
 
-  if (Parent.TranslationXY.y > Area.Arriba + 100 )  then
+  if (Parent.TranslationXY.y > Area.Arriba ) then
   begin
-   Parent.Parent.RemoveDelayed(Self.Parent,true);
+
+    //Parent.Parent.RemoveDelayed(Self.Parent, True);
+    Speed := 0.0;
+    Parent.Exists := False;
+    Exit;
   end;
 
   with Parent do
@@ -74,6 +81,12 @@ begin
 
   end;
 
+end;
+
+procedure TBulletBehavior.Collision(
+  const CollisionDetails: TPhysicsCollisionDetails);
+begin
+  WritelnLog('Colision en la bala');
 end;
 
 
@@ -205,7 +218,10 @@ end;
 //Control de colisiones
 procedure TPlayerBehavior.Collision(const CollisionDetails: TPhysicsCollisionDetails);
 begin
-
+  WritelnLog('Colision en la bala');
+  Parent.Visible:=False;
+  Speed:=Vector2(0.0,0.0);
+  Parent.Visible:=False;
 end;
 //Devuelve la posición actual
 function TPlayerBehavior.GetPosition: TVector2;

@@ -1,8 +1,11 @@
 {
   "$$ClassName" : "TCastleScene",
+  "Cache" : true,
   "ExposeTransforms" : [
   ],
   "Name" : "Bullet",
+  "Pickable" : false,
+  "PreciseCollisions" : true,
   "RenderOptions" : {
     "$$ClassName" : "TCastleScene.TSceneRenderOptions"
   },
@@ -21,6 +24,7 @@
     },
     {
       "$$ClassName" : "TCastleRigidBody",
+      "CollisionDetection" : "cdContinuous",
       "Gravity" : false,
       "LockRotation" : [
         0,

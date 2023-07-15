@@ -4,6 +4,8 @@
   "ExposeTransforms" : [
   ],
   "Name" : "bigplane",
+  "Pickable" : false,
+  "PreciseCollisions" : true,
   "ProcessEvents" : true,
   "RenderOptions" : {
     "$$ClassName" : "TCastleScene.TSceneRenderOptions"
@@ -27,6 +29,7 @@
     },
     {
       "$$ClassName" : "TCastleRigidBody",
+      "Animated" : true,
       "Gravity" : false,
       "LockRotation" : [
         0,
