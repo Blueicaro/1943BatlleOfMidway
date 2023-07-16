@@ -77,7 +77,7 @@
         "Name" : "",
         "Orthographic" : {
           "$$ClassName" : "TCastleOrthographic",
-          "Height" : 1.6747347412109375E+003,
+          "Height" : 1.6198304443359375E+003,
           "OriginPersistent" : {
             "$$ClassName" : "TCastleVector2Persistent",
             "X" : 5.0000000000000000E-001,

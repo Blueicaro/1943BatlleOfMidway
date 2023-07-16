@@ -10,7 +10,7 @@ interface
 uses Classes,
   CastleVectors, CastleComponentSerialize,
   CastleUIControls, CastleControls, CastleKeysMouse,
-  CastleViewport, CastleTransform, GamePlayerUnit;
+  CastleViewport, CastleTransform, GamePlayerUnit,CastleScene;
 
 type
   { Main view, where most of the application logic takes place. }
@@ -20,6 +20,7 @@ type
   TViewMain = class(TCastleView)
   private
     procedure CreateEnemyLevel2;
+    procedure CreateEnenmyRedPlane;
   published
     { Components designed using CGE editor.
       These fields will be automatically initialized at Start. }
@@ -39,7 +40,7 @@ var
 
 implementation
 
-uses SysUtils, CastleLog, Gameenemigyunit, Gamegeneral;
+uses SysUtils, CastleLog, Gameenemigyunit, Gamegeneral,math;
 
 { TViewMain ----------------------------------------------------------------- }
 
@@ -50,7 +51,7 @@ var
   EnemyBehavior: TEnemyBigPlane;
 begin
   Enemy := TransformLoad('castle-data:/Assets/bigplane.castle-transform', FreeAtStop);
-  Enemy.TranslationXY := Vector2(0, 600);
+  Enemy.TranslationXY := Vector3(0, 600,10);
   Enemy.Collides := True;
   EnemyBehavior := TEnemyBigPlane.Create(FreeAtStop);
   Enemy.AddBehavior(EnemyBehavior);
@@ -63,6 +64,20 @@ begin
 
   View.Items.Add(Enemy);
 
+end;
+
+procedure TViewMain.CreateEnenmyRedPlane;
+var
+  Enemy: TCastleTransform;
+  EnemyBehavior: TEnemyLittlePlane;
+begin
+  Enemy := TransformLoad('castle-data:/Assets/redplane.castle-transform', FreeAtStop);
+  Enemy.Translation := Vector3(100, 0,10);
+
+  EnemyBehavior := TEnemyLittlePlane.Create(FreeAtStop);
+   EnemyBehavior.Clockwise:=true;
+  Enemy.AddBehavior(EnemyBehavior);
+  View.Items.Add(Enemy);
 end;
 
 constructor TViewMain.Create(AOwner: TComponent);
@@ -118,9 +133,9 @@ begin
   LabelFps.Caption := 'FPS: ' + Container.Fps.ToString;
   for I := View.Items.Count - 1 downto 0 do
   begin
-    if View.Items[I].Exists =  False then
+    if View.Items[I].Exists = False then
     begin
-      WritelnLog(View.Items[I].Name);
+      WritelnLog(IntToStr(I) + ':' + View.Items[I].Name);
       View.Items.Delete(I);
     end;
 
@@ -180,7 +195,7 @@ begin
   end;
   if Event.IsKey(keyT) then
   begin
-    CreateEnemyLevel2;
+    CreateEnenmyRedPlane;
     Exit(True);
   end;
 
