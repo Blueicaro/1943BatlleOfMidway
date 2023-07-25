@@ -10,7 +10,7 @@ interface
 uses Classes,
   CastleVectors, CastleComponentSerialize,
   CastleUIControls, CastleControls, CastleKeysMouse,
-  CastleViewport, CastleTransform, GamePlayerUnit,CastleScene;
+  CastleViewport, CastleTransform, GamePlayerUnit, CastleScene, CastleWindow;
 
 type
   { Main view, where most of the application logic takes place. }
@@ -19,15 +19,29 @@ type
 
   TViewMain = class(TCastleView)
   private
+    {
+    Creo un objeto serializado. Para cargar solo una vez desde el disco duro
+    Ver: https://forum.castle-engine.io/t/sigsegv-when-i-try-to-remove/859/10
+    }
+    MyBulletTemplate: TSerializedComponent;
+    //Energia del jugador
+    Energia: byte;
+    //Puntuación de la partida
+    Score : integer;
     procedure CreateEnemyLevel2;
     procedure CreateEnenmyRedPlane;
+    procedure DisplayEnergia; //Actualiza la energia en la pantalla
+    procedure DisplayScore; //Actualiza la puntación
   published
     { Components designed using CGE editor.
       These fields will be automatically initialized at Start. }
     LabelFps: TCastleLabel;
     View: TCastleViewport;
+    lbScore: TCastleLabel;
+    lbEnergy: TCastleLabel;
   public
     constructor Create(AOwner: TComponent); override;
+    procedure Stop; override;
     procedure Start; override;
     procedure Update(const SecondsPassed: single; var HandleInput: boolean); override;
     function Press(const Event: TInputPressRelease): boolean; override;
@@ -40,7 +54,7 @@ var
 
 implementation
 
-uses SysUtils, CastleLog, Gameenemigyunit, Gamegeneral,math;
+uses SysUtils, CastleLog, Gameenemigyunit, Gamegeneral, Math, StrUtils;
 
 { TViewMain ----------------------------------------------------------------- }
 
@@ -51,7 +65,7 @@ var
   EnemyBehavior: TEnemyBigPlane;
 begin
   Enemy := TransformLoad('castle-data:/Assets/bigplane.castle-transform', FreeAtStop);
-  Enemy.Translation := Vector3(0, 600,10);
+  Enemy.Translation := Vector3(0, 600, 10);
   Enemy.Collides := True;
   EnemyBehavior := TEnemyBigPlane.Create(FreeAtStop);
   Enemy.AddBehavior(EnemyBehavior);
@@ -72,18 +86,36 @@ var
   EnemyBehavior: TEnemyLittlePlane;
 begin
   Enemy := TransformLoad('castle-data:/Assets/redplane.castle-transform', FreeAtStop);
-  Enemy.Translation := Vector3(100, 0,10);
+  Enemy.Translation := Vector3(100, 0, 10);
 
   EnemyBehavior := TEnemyLittlePlane.Create(FreeAtStop);
-   EnemyBehavior.Clockwise:=true;
+  EnemyBehavior.Clockwise := True;
   Enemy.AddBehavior(EnemyBehavior);
   View.Items.Add(Enemy);
+end;
+
+procedure TViewMain.DisplayEnergia;
+begin
+  lbEnergy.Text.Clear;
+  lbEnergy.Text.Add('E ' + IntToStr(Energia));
+end;
+
+procedure TViewMain.DisplayScore;
+begin
+  lbScore.Text.Clear;
+  lbScore.Text.Add('Score '+IntToStr(Score));
 end;
 
 constructor TViewMain.Create(AOwner: TComponent);
 begin
   inherited;
   DesignUrl := 'castle-data:/gameviewmain.castle-user-interface';
+end;
+
+procedure TViewMain.Stop;
+begin
+  FreeAndNil(MyBulletTemplate);
+  inherited Stop;
 end;
 
 procedure TViewMain.Start;
@@ -95,6 +127,8 @@ begin
   inherited;
   View := DesignedComponent('ViewPort1') as TCastleViewport;
 
+  MyBulletTemplate := TSerializedComponent.Create(
+    'castle-data:/Assets/bullet.castle-transform');
 
   //Obtener límites
   with Limite do
@@ -120,6 +154,12 @@ begin
   Cuerpo.OnCollisionEnter := PlayerBehavior.Collision;
  {$ENDIF}
   View.Items.Add(Player1);
+  //Energia incial del jugador
+  Energia := 100;
+  DisplayEnergia;
+  //Inicializar puntuación
+  Score := 0;
+  DisplayScore;
 end;
 
 procedure TViewMain.Update(const SecondsPassed: single; var HandleInput: boolean);
@@ -131,24 +171,14 @@ begin
   Assert(LabelFps <> nil,
     'If you remove LabelFps from the design, remember to remove also the assignment "LabelFps.Caption := ..." from code');
   LabelFps.Caption := 'FPS: ' + Container.Fps.ToString;
-  for I := View.Items.Count - 1 downto 0 do
-  begin
-    if View.Items[I].Exists = False then
-    begin
-      WritelnLog(IntToStr(I) + ':' + View.Items[I].Name);
-      View.Items.Delete(I);
-    end;
-
-  end;
-  //WritelnLog(IntToStr(View.Items.Count));
 end;
 
 function TViewMain.Press(const Event: TInputPressRelease): boolean;
 var
 
   BulletBehavior: TBulletBehavior;
-  Bullet: TCastleTransform;
   Cuerpo: TCastleRigidBody;
+  MyBullet: TCastleTransform;
 begin
   Result := inherited;
   if Result then Exit; // allow the ancestor to handle keys
@@ -173,29 +203,29 @@ begin
   }
   if Event.IsKey(keyEscape) then
   begin
-    Halt(0);
+    Application.Terminate;
   end;
 
   PlayerBehavior.Press(Event.Key);
   if Event.IsKey(keySpace) then
   begin
-    Bullet := TransformLoad('castle-data:/Assets/bullet.castle-transform',
-      FreeAtStop);
-    Bullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 100);
+    MyBullet := MyBulletTemplate.TransformLoad(FreeAtStop);
+    MyBullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 100);
     BulletBehavior := TBulletBehavior.Create(FreeAtStop);
-    Bullet.AddBehavior(BulletBehavior);
-    Cuerpo := Bullet.FindBehavior(TCastleRigidBody) as TCastleRigidBody;
+    MyBullet.AddBehavior(BulletBehavior);
+    Cuerpo := MyBullet.FindBehavior(TCastleRigidBody) as TCastleRigidBody;
   {$IFDEF FPC}
   Cuerpo.OnCollisionStay:=@BulletBehavior.collision;
   {$ELSE}
     Cuerpo.OnCollisionEnter := BulletBehavior.collision;
   {$ENDIF}
-    View.Items.Add(Bullet);
+    View.Items.Add(MyBullet);
     Exit(True);
   end;
   if Event.IsKey(keyT) then
   begin
-    CreateEnenmyRedPlane;
+    //CreateEnenmyRedPlane;
+    CreateEnemyLevel2;
     Exit(True);
   end;
 

@@ -36,9 +36,11 @@ type
     Area: TLimites;
 
   public
+
     constructor Create(AOwner: TComponent); override;
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
     procedure Collision(const CollisionDetails: TPhysicsCollisionDetails);
+
   end;
 
 implementation
@@ -52,8 +54,8 @@ begin
   inherited Create(AOwner);
   Speed := 300.0;
   Area := Limite;
-
 end;
+
 
 procedure TBulletBehavior.Update(const SecondsPassed: single;
   var RemoveMe: TRemoveType);
@@ -66,13 +68,11 @@ begin
    Indicamos al padre que borre todo, y y así mismo.
    }
 
-  if (Parent.TranslationXY.y > Area.Arriba ) then
+  if (Parent.TranslationXY.y > Area.Arriba)  then
   begin
-
-    //Parent.Parent.RemoveDelayed(Self.Parent, True);
     Speed := 0.0;
-    Parent.Exists := False;
-    Exit;
+    Parent.Parent.RemoveDelayed(Parent, True);
+    //Exit;
   end;
 
   with Parent do
@@ -83,8 +83,7 @@ begin
 
 end;
 
-procedure TBulletBehavior.Collision(
-  const CollisionDetails: TPhysicsCollisionDetails);
+procedure TBulletBehavior.Collision(const CollisionDetails: TPhysicsCollisionDetails);
 begin
   WritelnLog('Colision en la bala');
 end;
@@ -219,9 +218,9 @@ end;
 procedure TPlayerBehavior.Collision(const CollisionDetails: TPhysicsCollisionDetails);
 begin
   WritelnLog('Colision en la bala');
-  Parent.Visible:=False;
-  Speed:=Vector2(0.0,0.0);
-  Parent.Visible:=False;
+  Parent.Visible := False;
+  Speed := Vector2(0.0, 0.0);
+  Parent.Visible := False;
 end;
 //Devuelve la posición actual
 function TPlayerBehavior.GetPosition: TVector2;

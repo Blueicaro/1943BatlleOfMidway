@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="numeros.png">
+  <SubTexture x="0" y="1012" fps="8" name="1_1" width="8" height="12"/>
+  <SubTexture x="8" y="1012" fps="8" name="2_1" width="8" height="12"/>
+  <SubTexture x="16" y="1012" fps="8" name="3_1" width="8" height="12"/>
+  <SubTexture x="24" y="1012" fps="8" name="4_1" width="8" height="12"/>
+  <SubTexture x="32" y="1012" fps="8" name="5_1" width="8" height="12"/>
+  <SubTexture x="40" y="1012" fps="8" name="6_1" width="8" height="12"/>
+  <SubTexture x="48" y="1012" fps="8" name="7_1" width="8" height="12"/>
+  <SubTexture x="56" y="1012" fps="8" name="8_1" width="8" height="12"/>
+  <SubTexture x="64" y="1012" fps="8" name="9_1" width="8" height="12"/>
+  <SubTexture x="72" y="1012" fps="8" name="0_1" width="8" height="12"/>
+</TextureAtlas>

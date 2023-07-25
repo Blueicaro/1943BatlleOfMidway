@@ -26,10 +26,10 @@ type
   TEnemyLittlePlane = class(TCastleBehavior)
   private
     AngularSpeed: single;
-    AnguloActual : single; //Grados
+    AnguloActual: single; //Grados
   public
     Radio: single;
-    Clockwise : boolean; //Sentido de giro
+    Clockwise: boolean; //Sentido de giro
   published
     constructor Create(AOwner: TComponent); override;
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
@@ -37,7 +37,7 @@ type
 
 implementation
 
-uses CastleLog,Math,sysutils;
+uses CastleLog, Math, SysUtils;
 
 { TEnemyLittlePlane }
 
@@ -46,15 +46,14 @@ begin
   inherited Create(AOwner);
   AngularSpeed := 50; //Grados
   radio := 200.0;
-  AnguloActual:=0.0;
-
+  AnguloActual := 0.0;
 
 end;
 
 procedure TEnemyLittlePlane.Update(const SecondsPassed: single;
   var RemoveMe: TRemoveType);
 var
-  AnguloRadianes: Single;
+  AnguloRadianes: single;
   X, Y: ValReal;
   R: TComponent;
 
@@ -63,42 +62,42 @@ begin
 
 
   if Clockwise then
-   begin
-   AnguloActual := (AnguloActual-AngularSpeed*SecondsPassed);
-   if AnguloActual < -360 then
-   begin
-     AnguloActual:=0.0;
-   end;
+  begin
+    AnguloActual := (AnguloActual - AngularSpeed * SecondsPassed);
+    if AnguloActual < -360 then
+    begin
+      AnguloActual := 0.0;
+    end;
 
-   WritelnLog(FloatToStr(AnguloActual));
+    WritelnLog(FloatToStr(AnguloActual));
 
   end
 
   else
   begin
-   AnguloActual := AnguloActual+AngularSpeed*SecondsPassed;
-   if AnguloActual > 360.0 then
-   begin
-     AnguloActual:=0.0;
-   end;
+    AnguloActual := AnguloActual + AngularSpeed * SecondsPassed;
+    if AnguloActual > 360.0 then
+    begin
+      AnguloActual := 0.0;
+    end;
   end;
 
 
-  AnguloRadianes:=DegToRad(AnguloActual);
-  X := radio *Cos(AnguloRadianes);
-  Y := radio *Sin(AnguloRadianes);
+  AnguloRadianes := DegToRad(AnguloActual);
+  X := radio * Cos(AnguloRadianes);
+  Y := radio * Sin(AnguloRadianes);
 
   //Rotación en Z
   if Clockwise then
   begin
-  Parent.Rotation:=Vector4(0,0,1,AnguloRadianes+pi);
+    Parent.Rotation := Vector4(0, 0, 1, AnguloRadianes + pi);
   end
   else
   begin
-   Parent.Rotation:=Vector4(0,0,1,AnguloRadianes);
+    Parent.Rotation := Vector4(0, 0, 1, AnguloRadianes);
   end;
 
-  Parent.TranslationXY:=Vector2(X,Y);
+  Parent.TranslationXY := Vector2(X, Y);
 end;
 
 
@@ -141,13 +140,19 @@ end;
 
 procedure TEnemyBigPlane.Collision(const CollisionDetails: TPhysicsCollisionDetails);
 
+var
+  t: TCastleTransform;
 begin
   { #todo : Comprobar si choca con la bala o con el jugador }
-  CollisionDetails.Transforms[1].Exists := False;
+  t := CollisionDetails.Transforms[1];
+  WritelnLog('Col1:'+CollisionDetails.Transforms[1].NAME);
+  if CollisionDetails.Transforms[1].Name = 'Bullet' then
+  begin
+    CollisionDetails.Transforms[1].Free;
+  end;
   WritelnLog('Colision en el avión');
-
   Speed := Vector2(0.0, 0.0);
-  Parent.Exists := False;
+  Parent.Parent.RemoveDelayed(Parent, True);
 end;
 
 end.
