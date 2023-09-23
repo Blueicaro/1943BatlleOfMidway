@@ -2,7 +2,8 @@
 
 # Build tool (and compiler) temporary output
 castle-engine-output
-
+# Remove debug files
+.dbg
 # Unix executable
 1943BatlleOfMidway
 # Windows executable
