@@ -46,6 +46,7 @@
               "$$ClassName" : "TCastlePerspective"
             },
             "ProjectionType" : "ptOrthographic",
+            "RenderLayer" : "rlBack",
             "RotationPersistent" : {
               "$$ClassName" : "TCastleVector4RotationPersistent",
               "Z" : 1.0000000000000000E+000
@@ -128,29 +129,31 @@
               "ImageUrl" : "castle-data:/fonts/sonic_asalga_0.png",
               "Name" : "BitmapFont1"
             }
-          ]
-        },
-        {
-          "$$ClassName" : "TCastleLabel",
-          "ColorPersistent" : {
-            "$$ClassName" : "TCastleColorPersistent",
-            "Blue" : 1.0000000000000000E+000,
-            "Green" : 1.0000000000000000E+000,
-            "Red" : 1.0000000000000000E+000
-          },
-          "CustomFont" : "BitmapFont1",
-          "FontSize" : 2.4000000000000000E+001,
-          "Name" : "lbEnergy",
-          "Text" : [
-            "E"
           ],
-          "TranslationPersistent" : {
-            "$$ClassName" : "TCastleVector2Persistent",
-            "X" : 1.5000000000000000E+002,
-            "Y" : -1.0000000000000000E+001
-          },
-          "VerticalAnchorParent" : "vpTop",
-          "VerticalAnchorSelf" : "vpTop"
+          "$Children" : [
+            {
+              "$$ClassName" : "TCastleLabel",
+              "ColorPersistent" : {
+                "$$ClassName" : "TCastleColorPersistent",
+                "Blue" : 1.0000000000000000E+000,
+                "Green" : 1.0000000000000000E+000,
+                "Red" : 1.0000000000000000E+000
+              },
+              "CustomFont" : "BitmapFont1",
+              "FontSize" : 2.4000000000000000E+001,
+              "Name" : "lbEnergy",
+              "Text" : [
+                "E"
+              ],
+              "TranslationPersistent" : {
+                "$$ClassName" : "TCastleVector2Persistent",
+                "X" : -1.1608571777343750E+003,
+                "Y" : -2.3841857910156250E-005
+              },
+              "VerticalAnchorParent" : "vpTop",
+              "VerticalAnchorSelf" : "vpTop"
+            }
+          ]
         }
       ],
       "InternalDesignCamera" : {
@@ -158,7 +161,7 @@
         "Name" : "",
         "Orthographic" : {
           "$$ClassName" : "TCastleOrthographic",
-          "Height" : 1.2406741943359375E+003,
+          "Height" : 1.3711569824218750E+003,
           "OriginPersistent" : {
             "$$ClassName" : "TCastleVector2Persistent",
             "X" : 5.0000000000000000E-001,

@@ -1,0 +1,701 @@
+{
+  "$$ClassName" : "TCastleUserInterface",
+  "FullSize" : true,
+  "Name" : "RootGroup",
+  "$Children" : [
+    {
+      "$$ClassName" : "TCastleViewport",
+      "BackgroundColorPersistent" : {
+        "$$ClassName" : "TCastleColorPersistent",
+        "Blue" : 5.3333336114883423E-001,
+        "Green" : 1.6470588743686676E-001,
+        "Red" : 0.0000000000000000E+000
+      },
+      "Camera" : "Camera1",
+      "FullSize" : true,
+      "Items" : {
+        "$$ClassName" : "TCastleRootTransform",
+        "PhysicsProperties" : {
+          "$$ClassName" : "TPhysicsProperties",
+          "LayerCollisions" : {
+            "$$ClassName" : "TCastleLayerCollisions"
+          },
+          "LayerNames" : {
+            "$$ClassName" : "TCastleLayerNames"
+          }
+        },
+        "$Children" : [
+          {
+            "$$ClassName" : "TCastleCamera",
+            "Name" : "Camera1",
+            "Orthographic" : {
+              "$$ClassName" : "TCastleOrthographic",
+              "Height" : 2.0000000000000000E+003,
+              "OriginPersistent" : {
+                "$$ClassName" : "TCastleVector2Persistent",
+                "X" : 5.0000000000000000E-001,
+                "Y" : 5.0000000000000000E-001
+              }
+            },
+            "Perspective" : {
+              "$$ClassName" : "TCastlePerspective",
+              "FieldOfView" : 7.9000002145767212E-001
+            },
+            "ProjectionType" : "ptOrthographic",
+            "RotationPersistent" : {
+              "$$ClassName" : "TCastleVector4RotationPersistent",
+              "Z" : 1.0000000000000000E+000
+            },
+            "TranslationPersistent" : {
+              "$$ClassName" : "TCastleVector3Persistent",
+              "Z" : 5.0000000000000000E+002
+            }
+          },
+          {
+            "$$ClassName" : "TCastleImageTransform",
+            "Name" : "KakuImage",
+            "ScalePersistent" : {
+              "$$ClassName" : "TCastleVector3Persistent",
+              "X" : 3.0000000000000000E+000,
+              "Y" : 3.0000000000000000E+000,
+              "Z" : 3.0000000000000000E+000
+            },
+            "TranslationPersistent" : {
+              "$$ClassName" : "TCastleVector3Persistent",
+              "X" : 1.9314189910888672E+001,
+              "Y" : 1.8793721008300781E+002
+            },
+            "Url" : "castle-data:/Sprites/kaku/kaku.png",
+            "$Children" : [
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta20",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6069782257080078E+001,
+                  "Y" : -1.4074774169921875E+002,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta4",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.5596389770507812E+001,
+                  "Y" : 6.8808410644531250E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta11",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6542636871337891E+001,
+                  "Y" : -2.8840225219726562E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta13",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6783142089843750E+001,
+                  "Y" : -4.5194473266601562E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta14",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6302135467529297E+001,
+                  "Y" : -6.8282821655273438E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta15",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.8355159759521484E+001,
+                  "Y" : -9.1611679077148438E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta1",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.2986251831054688E+001,
+                  "Y" : 1.3110452270507812E+002,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta21",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.8721767425537109E+001,
+                  "Y" : -1.4074774169921875E+002,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta18",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.5821128845214844E+001,
+                  "Y" : -1.2383917236328125E+002,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta19",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.9467731475830078E+001,
+                  "Y" : -1.2383917236328125E+002,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta16",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6542640686035156E+001,
+                  "Y" : -9.2814193725585938E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta3",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.2986255645751953E+001,
+                  "Y" : 9.9549316406250000E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta12",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.9076671600341797E+001,
+                  "Y" : -4.5194473266601562E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta10",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6542636871337891E+001,
+                  "Y" : -1.2966979980468750E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta2",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 5.0033405303955078E+001,
+                  "Y" : 6.4933067321777344E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta9",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.8355159759521484E+001,
+                  "Y" : -1.2966979980468750E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta5",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.5173034667968750E+001,
+                  "Y" : 4.3078262329101562E+001,
+                  "Z" : 1.0000000000000000E+001
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta7",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.9076930999755859E+001,
+                  "Y" : 3.6241729736328125E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta6",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -3.6713035583496094E+001,
+                  "Y" : 1.1540573883056641E+002,
+                  "Z" : 1.0000000000000000E+001
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta17",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "ScalePersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 1.2000000476837158E+000,
+                  "Y" : 1.2000000476837158E+000,
+                  "Z" : 1.2000000476837158E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : 3.8595664978027344E+001,
+                  "Y" : -1.0820643615722656E+002,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              },
+              {
+                "$$ClassName" : "TCastleScene",
+                "AutoAnimation" : "Rotacion",
+                "ExposeTransforms" : [
+                ],
+                "Name" : "Torreta8",
+                "ProcessEvents" : true,
+                "RenderOptions" : {
+                  "$$ClassName" : "TCastleScene.TSceneRenderOptions"
+                },
+                "RotationPersistent" : {
+                  "$$ClassName" : "TCastleVector4RotationPersistent",
+                  "Z" : 1.0000000000000000E+000
+                },
+                "TranslationPersistent" : {
+                  "$$ClassName" : "TCastleVector3Persistent",
+                  "X" : -4.6061630249023438E+001,
+                  "Y" : 1.9260528564453125E+001,
+                  "Z" : 5.0000000000000000E+000
+                },
+                "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+              }
+            ]
+          }
+        ]
+      },
+      "Name" : "Viewport1",
+      "InternalDesignCamera" : {
+        "$$ClassName" : "TCastleCamera",
+        "Name" : "",
+        "Orthographic" : {
+          "$$ClassName" : "TCastleOrthographic",
+          "Height" : 3.2619377441406250E+003,
+          "OriginPersistent" : {
+            "$$ClassName" : "TCastleVector2Persistent",
+            "X" : 5.0000000000000000E-001,
+            "Y" : 5.0000000000000000E-001
+          }
+        },
+        "Perspective" : {
+          "$$ClassName" : "TCastlePerspective"
+        },
+        "ProjectionType" : "ptOrthographic",
+        "RotationPersistent" : {
+          "$$ClassName" : "TCastleVector4RotationPersistent",
+          "Z" : 1.0000000000000000E+000
+        },
+        "TranslationPersistent" : {
+          "$$ClassName" : "TCastleVector3Persistent",
+          "X" : 3.8163208007812500E+001,
+          "Y" : 1.3103201293945312E+002,
+          "Z" : 6.0000000000000000E+002
+        }
+      },
+      "InternalDesignNavigationType" : 2,
+      "InternalDesignNavigations[dnFly]" : {
+        "$$ClassName" : "TCastleWalkNavigationDesign",
+        "Exists" : false,
+        "Name" : ""
+      },
+      "InternalDesignNavigations[dnExamine]" : {
+        "$$ClassName" : "TCastleExamineNavigationDesign",
+        "Exists" : false,
+        "Name" : ""
+      },
+      "InternalDesignNavigations[dn2D]" : {
+        "$$ClassName" : "TCastle2DNavigationDesign",
+        "Name" : ""
+      }
+    }
+  ]
+}

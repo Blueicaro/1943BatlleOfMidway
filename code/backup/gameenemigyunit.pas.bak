@@ -145,8 +145,8 @@ var
 begin
   { #todo : Comprobar si choca con la bala o con el jugador }
   t := CollisionDetails.Transforms[1];
-  WritelnLog(CollisionDetails.Transforms[1].INTERNALORIGINALNAME);
-if CollisionDetails.Transforms[1].INTERNALORIGINALNAME = 'Bullet' then
+  WritelnLog('Col1:'+CollisionDetails.Transforms[1].NAME);
+  if CollisionDetails.Transforms[1].Name = 'Bullet' then
   begin
     CollisionDetails.Transforms[1].Free;
   end;

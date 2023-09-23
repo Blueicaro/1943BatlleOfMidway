@@ -27,7 +27,7 @@ type
     //Energia del jugador
     Energia: byte;
     //Puntuación de la partida
-    Score : integer;
+    Score: integer;
     procedure CreateEnemyLevel2;
     procedure CreateEnenmyRedPlane;
     procedure DisplayEnergia; //Actualiza la energia en la pantalla
@@ -103,7 +103,7 @@ end;
 procedure TViewMain.DisplayScore;
 begin
   lbScore.Text.Clear;
-  lbScore.Text.Add('Score '+IntToStr(Score));
+  lbScore.Text.Add('Score ' + IntToStr(Score));
 end;
 
 constructor TViewMain.Create(AOwner: TComponent);
@@ -159,6 +159,7 @@ begin
   DisplayEnergia;
   //Inicializar puntuación
   Score := 0;
+  DisplayScore;
 end;
 
 procedure TViewMain.Update(const SecondsPassed: single; var HandleInput: boolean);
@@ -177,7 +178,7 @@ var
 
   BulletBehavior: TBulletBehavior;
   Cuerpo: TCastleRigidBody;
-  MyBullet: TCastleTransform;
+  MyBullet, Kaku: TCastleTransform;
 begin
   Result := inherited;
   if Result then Exit; // allow the ancestor to handle keys
@@ -221,13 +222,20 @@ begin
     View.Items.Add(MyBullet);
     Exit(True);
   end;
-  if Event.IsKey(keyT) then
+  if Event.IsKey(key1) then
   begin
     //CreateEnenmyRedPlane;
     CreateEnemyLevel2;
     Exit(True);
   end;
-
+  if Event.IsKey(key2) then
+  begin
+    Kaku := TransformLoad('castle-data:/Assets/kaku.castle-transform', FreeAtStop);
+    Kaku.Direction := View.Camera.Direction;
+    Kaku.Translation := Vector3(0,0,-10);
+    View.Items.Add(Kaku);
+    Exit(true);
+  end;
 end;
 
 //Cuando se suelta una tecla o un botón del teclado

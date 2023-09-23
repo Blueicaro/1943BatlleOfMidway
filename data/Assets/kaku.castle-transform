@@ -1,0 +1,47 @@
+{
+  "$$ClassName" : "TCastleTransform",
+  "Name" : "Transform1",
+  "RenderLayer" : "rlBack",
+  "$Children" : [
+    {
+      "$$ClassName" : "TCastleScene",
+      "ExposeTransforms" : [
+      ],
+      "Name" : "Scene2",
+      "RenderLayer" : "rlBack",
+      "RenderOptions" : {
+        "$$ClassName" : "TCastleScene.TSceneRenderOptions",
+        "BlendingSort" : "bs2D",
+        "Lighting" : false
+      },
+      "TranslationPersistent" : {
+        "$$ClassName" : "TCastleVector3Persistent",
+        "Z" : -1.0000000000000000E+000
+      },
+      "URL" : "castle-data:/Sprites/kaku/kaku.png"
+    },
+    {
+      "$$ClassName" : "TCastleScene",
+      "AutoAnimation" : "origen",
+      "ExposeTransforms" : [
+      ],
+      "Name" : "Scene1",
+      "ProcessEvents" : true,
+      "RenderLayer" : "rlFront",
+      "RenderOptions" : {
+        "$$ClassName" : "TCastleScene.TSceneRenderOptions",
+        "BlendingSort" : "bs2D"
+      },
+      "RotationPersistent" : {
+        "$$ClassName" : "TCastleVector4RotationPersistent",
+        "Z" : 1.0000000000000000E+000
+      },
+      "TranslationPersistent" : {
+        "$$ClassName" : "TCastleVector3Persistent",
+        "X" : 3.8729999542236328E+001,
+        "Y" : -1.2369999885559082E+001
+      },
+      "URL" : "castle-data:/Sprites/Torretas/TorretaA.castle-sprite-sheet"
+    }
+  ]
+}

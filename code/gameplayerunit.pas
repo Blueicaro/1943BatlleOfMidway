@@ -72,7 +72,7 @@ begin
   begin
     Speed := 0.0;
     Parent.Parent.RemoveDelayed(Parent, True);
-    //Exit;
+    Exit;
   end;
 
   with Parent do
@@ -86,6 +86,7 @@ end;
 procedure TBulletBehavior.Collision(const CollisionDetails: TPhysicsCollisionDetails);
 begin
   WritelnLog('Colision en la bala');
+  Parent.Exists:=False;
 end;
 
 

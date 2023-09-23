@@ -148,7 +148,7 @@ begin
   WritelnLog('Col1:'+CollisionDetails.Transforms[1].NAME);
   if CollisionDetails.Transforms[1].Name = 'Bullet' then
   begin
-    CollisionDetails.Transforms[1].Free;
+    CollisionDetails.Transforms[1].Exists:=False;
   end;
   WritelnLog('Colision en el avión');
   Speed := Vector2(0.0, 0.0);

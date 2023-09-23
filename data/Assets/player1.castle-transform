@@ -5,6 +5,7 @@
   ],
   "Name" : "Player",
   "ProcessEvents" : true,
+  "RenderLayer" : "rlFront",
   "RenderOptions" : {
     "$$ClassName" : "TCastleScene.TSceneRenderOptions"
   },

@@ -1,0 +1,57 @@
+{
+  "$$ClassName" : "TCastleLabel",
+  "ColorPersistent" : {
+    "$$ClassName" : "TCastleColorPersistent",
+    "Blue" : 1.0000000000000000E+000,
+    "Green" : 1.0000000000000000E+000,
+    "Red" : 1.0000000000000000E+000
+  },
+  "CustomFont" : "BitmapFont1",
+  "FontSize" : 2.4000000000000000E+001,
+  "HorizontalAnchorParent" : "hpRight",
+  "HorizontalAnchorSelf" : "hpRight",
+  "Name" : "lbScore",
+  "Text" : [
+    "Score"
+  ],
+  "TranslationPersistent" : {
+    "$$ClassName" : "TCastleVector2Persistent",
+    "X" : -1.5000000000000000E+002,
+    "Y" : -1.0000000000000000E+001
+  },
+  "VerticalAnchorParent" : "vpTop",
+  "VerticalAnchorSelf" : "vpTop",
+  "$NonVisualComponents" : [
+    {
+      "$$ClassName" : "TCastleBitmapFont",
+      "ImageMargin" : 2,
+      "ImageRows" : 12,
+      "ImageUrl" : "castle-data:/fonts/sonic_asalga_0.png",
+      "Name" : "BitmapFont1"
+    }
+  ],
+  "$Children" : [
+    {
+      "$$ClassName" : "TCastleLabel",
+      "ColorPersistent" : {
+        "$$ClassName" : "TCastleColorPersistent",
+        "Blue" : 1.0000000000000000E+000,
+        "Green" : 1.0000000000000000E+000,
+        "Red" : 1.0000000000000000E+000
+      },
+      "CustomFont" : "BitmapFont1",
+      "FontSize" : 2.4000000000000000E+001,
+      "Name" : "lbEnergy",
+      "Text" : [
+        "E"
+      ],
+      "TranslationPersistent" : {
+        "$$ClassName" : "TCastleVector2Persistent",
+        "X" : -1.1608571777343750E+003,
+        "Y" : -2.3841857910156250E-005
+      },
+      "VerticalAnchorParent" : "vpTop",
+      "VerticalAnchorSelf" : "vpTop"
+    }
+  ]
+}

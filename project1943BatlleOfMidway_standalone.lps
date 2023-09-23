@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="12"/>
     <BuildModes Active="Debug"/>
-    <Units Count="25">
+    <Units Count="26">
       <Unit0>
         <Filename Value="project1943BatlleOfMidway_standalone.dpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,6 +19,10 @@
       <Unit2>
         <Filename Value="code/gameinitialize.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="GameInitialize"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="36" Y="38"/>
         <UsageCount Value="155"/>
       </Unit2>
       <Unit3>
@@ -27,8 +31,8 @@
         <UnitName Value="GameViewMain"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="144"/>
-        <CursorPos X="16" Y="162"/>
+        <TopLine Value="208"/>
+        <CursorPos Y="216"/>
         <UsageCount Value="155"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -36,8 +40,8 @@
         <Filename Value="code/gameplayerunit.pas"/>
         <UnitName Value="GamePlayerUnit"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="64"/>
-        <CursorPos Y="73"/>
+        <TopLine Value="71"/>
+        <CursorPos X="4" Y="85"/>
         <UsageCount Value="73"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -86,8 +90,8 @@
       <Unit11>
         <Filename Value="code/gameenemigyunit.pas"/>
         <UnitName Value="Gameenemigyunit"/>
-        <TopLine Value="127"/>
-        <CursorPos Y="151"/>
+        <TopLine Value="115"/>
+        <CursorPos X="49" Y="151"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit11>
@@ -185,143 +189,124 @@
         <CursorPos Y="3470"/>
         <UsageCount Value="7"/>
       </Unit24>
+      <Unit25>
+        <Filename Value="code/gameviewkakuview.pas"/>
+        <UnitName Value="GameViewKakuView"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="20"/>
+        <CursorPos X="54" Y="29"/>
+        <UsageCount Value="10"/>
+      </Unit25>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="199" Column="23"/>
+        <Caret Line="190" Column="17" TopLine="175"/>
       </Position1>
       <Position2>
-        <Filename Value="code/gameplayerunit.pas"/>
-        <Caret Line="41" Column="88" TopLine="28"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="195" Column="23" TopLine="179"/>
       </Position2>
       <Position3>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="147" TopLine="132"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="38" Column="7" TopLine="27"/>
       </Position3>
       <Position4>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="146" Column="4" TopLine="132"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="99" Column="3" TopLine="95"/>
       </Position4>
       <Position5>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="149" TopLine="132"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="39" Column="17" TopLine="36"/>
       </Position5>
       <Position6>
-        <Filename Value="code/gameplayerunit.pas"/>
-        <Caret Line="57" TopLine="47"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="138" Column="48" TopLine="121"/>
       </Position6>
       <Position7>
-        <Filename Value="code/gameplayerunit.pas"/>
-        <Caret Line="71" Column="45" TopLine="62"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="192" Column="29" TopLine="190"/>
       </Position7>
       <Position8>
-        <Filename Value="code/gameplayerunit.pas"/>
-        <Caret Line="73" TopLine="64"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="39" Column="18" TopLine="19"/>
       </Position8>
       <Position9>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="150" Column="7" TopLine="131"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="30" Column="68" TopLine="20"/>
       </Position9>
       <Position10>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="147" Column="3" TopLine="131"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="40" Column="18" TopLine="31"/>
       </Position10>
       <Position11>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="146" Column="30" TopLine="131"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="146" Column="20" TopLine="129"/>
       </Position11>
       <Position12>
-        <Filename Value="code/gameenemigyunit.pas"/>
-        <Caret Line="58" Column="3" TopLine="47"/>
+        <Filename Value="code/gameviewmain.pas"/>
+        <Caret Line="30" Column="15" TopLine="17"/>
       </Position12>
       <Position13>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="22" Column="26" TopLine="13"/>
+        <Caret Line="95" Column="40" TopLine="93"/>
       </Position13>
       <Position14>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="38" Column="18" TopLine="28"/>
+        <Caret Line="94" Column="66" TopLine="77"/>
       </Position14>
       <Position15>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="193" Column="21" TopLine="181"/>
+        <Caret Line="34" Column="54" TopLine="28"/>
       </Position15>
       <Position16>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="190" Column="17" TopLine="175"/>
+        <Caret Line="233" Column="8" TopLine="223"/>
       </Position16>
       <Position17>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="195" Column="23" TopLine="179"/>
+        <Caret Line="234" Column="7" TopLine="214"/>
       </Position17>
       <Position18>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="38" Column="7" TopLine="27"/>
+        <Caret Line="31" Column="15" TopLine="20"/>
       </Position18>
       <Position19>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="99" Column="3" TopLine="95"/>
+        <Caret Line="234" Column="10" TopLine="223"/>
       </Position19>
       <Position20>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="39" Column="17" TopLine="36"/>
+        <Caret Line="132" Column="57" TopLine="111"/>
       </Position20>
       <Position21>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="138" Column="48" TopLine="121"/>
+        <Caret Line="26" Column="21" TopLine="10"/>
       </Position21>
       <Position22>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="192" Column="29" TopLine="190"/>
+        <Caret Line="117" Column="30" TopLine="99"/>
       </Position22>
       <Position23>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="39" Column="18" TopLine="19"/>
+        <Caret Line="130" Column="19" TopLine="118"/>
       </Position23>
       <Position24>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="30" Column="68" TopLine="20"/>
+        <Caret Line="212" Column="33" TopLine="198"/>
       </Position24>
       <Position25>
         <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="40" Column="18" TopLine="31"/>
+        <Caret Line="237" Column="16" TopLine="208"/>
       </Position25>
       <Position26>
-        <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="146" Column="20" TopLine="129"/>
+        <Filename Value="code/gameplayerunit.pas"/>
+        <Caret Line="42" Column="19" TopLine="33"/>
       </Position26>
-      <Position27>
-        <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="30" Column="15" TopLine="17"/>
-      </Position27>
-      <Position28>
-        <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="95" Column="40" TopLine="93"/>
-      </Position28>
-      <Position29>
-        <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="94" Column="66" TopLine="77"/>
-      </Position29>
-      <Position30>
-        <Filename Value="code/gameviewmain.pas"/>
-        <Caret Line="34" Column="54" TopLine="28"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="code/gameenemigyunit.pas"/>
-        <Line Value="151"/>
-      </Item>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>
