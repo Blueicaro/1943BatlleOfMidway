@@ -213,12 +213,12 @@ begin
     MyBullet.TranslationXY := PlayerBehavior.GetPosition + Vector2(0, 100);
     BulletBehavior := TBulletBehavior.Create(FreeAtStop);
     MyBullet.AddBehavior(BulletBehavior);
-    Cuerpo := MyBullet.FindBehavior(TCastleRigidBody) as TCastleRigidBody;
-  {$IFDEF FPC}
-  Cuerpo.OnCollisionStay:=@BulletBehavior.collision;
-  {$ELSE}
-    Cuerpo.OnCollisionEnter := BulletBehavior.collision;
-  {$ENDIF}
+    //  Cuerpo := MyBullet.FindBehavior(TCastleRigidBody) as TCastleRigidBody;
+    //{$IFDEF FPC}
+    //  Cuerpo.OnCollisionStay:=@BulletBehavior.collision;
+    //{$ELSE}
+    //  Cuerpo.OnCollisionEnter := BulletBehavior.collision;
+    //{$ENDIF}
     View.Items.Add(MyBullet);
     Exit(True);
   end;
@@ -232,9 +232,9 @@ begin
   begin
     Kaku := TransformLoad('castle-data:/Assets/kaku.castle-transform', FreeAtStop);
     Kaku.Direction := View.Camera.Direction;
-    Kaku.Translation := Vector3(0,0,-10);
+    Kaku.Translation := Vector3(0, 0, -10);
     View.Items.Add(Kaku);
-    Exit(true);
+    Exit(True);
   end;
 end;
 

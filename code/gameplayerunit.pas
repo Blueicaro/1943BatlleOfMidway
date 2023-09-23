@@ -2,7 +2,8 @@ unit GamePlayerUnit;
 
 interface
 
-uses Classes, CastleTransform, CastleKeysMouse, CastleVectors, Gamegeneral;
+uses Classes, CastleTransform, CastleKeysMouse, CastleVectors, Gamegeneral,
+  CastleControls;
 
 type
 
@@ -15,11 +16,13 @@ type
     SpeedX: single;
     SpeedY: single;
     Speed: TVector2;
+    moving: boolean;
     Coordenadas: TVector2;
     Area: TLimites;
+    Tiempo: QWord;
   public
     constructor Create(AOwner: TComponent); override;
-    procedure Press(aKey: TKey);   //En un futuro podrian ser TEVent para
+    function Press(aKey: TKey):Boolean;   //En un futuro podrian ser TEVent para
     procedure Release(aKey: Tkey); //gestionar tambien el ratón
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
     procedure Collision(const CollisionDetails: TPhysicsCollisionDetails);
@@ -34,13 +37,10 @@ type
   private
     Speed: single;
     Area: TLimites;
-
   public
-
     constructor Create(AOwner: TComponent); override;
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
     procedure Collision(const CollisionDetails: TPhysicsCollisionDetails);
-
   end;
 
 implementation
@@ -67,18 +67,20 @@ begin
    Que es el padre de todos. De él desciende TCastleScene, y TCastleBehavior.
    Indicamos al padre que borre todo, y y así mismo.
    }
-
-  if (Parent.TranslationXY.y > Area.Arriba)  then
+  if Parent.Visible = False then
+  begin
+    Parent.Parent.RemoveDelayed(Parent, True);
+    Exit;
+  end;
+  if (Parent.TranslationXY.y > Area.Arriba) then
   begin
     Speed := 0.0;
     Parent.Parent.RemoveDelayed(Parent, True);
     Exit;
   end;
-
   with Parent do
   begin
     TranslationXY := TranslationXY + Vector2(0, Speed * SecondsPassed);
-
   end;
 
 end;
@@ -86,12 +88,14 @@ end;
 procedure TBulletBehavior.Collision(const CollisionDetails: TPhysicsCollisionDetails);
 begin
   WritelnLog('Colision en la bala');
-  Parent.Exists:=False;
+  Parent.Exists := False;
 end;
 
 
 
 { TPlayerBehavior }
+
+
 
 constructor TPlayerBehavior.Create(AOwner: TComponent);
 begin
@@ -101,10 +105,17 @@ begin
   Speed := Vector2(0.0, 0.0);
   Area := Limite;
   Area.Arriba := -200;
+  moving := False;
 end;
 
-procedure TPlayerBehavior.Press(aKey: TKey);
+function TPlayerBehavior.Press(aKey: TKey): Boolean;
 begin
+  Result := true;
+  if (aKey = keyArrowRight) or (aKey = keyArrowleft) or (aKey = keyArrowDown) or
+    (aKey = keyArrowUp) then
+  begin
+    moving := True;
+  end;
   case aKey of
     keyArrowLeft:
     begin
@@ -114,7 +125,7 @@ begin
         with Parent as TCastleScene do
           AutoAnimation := 'Recto';
       end
-      else
+      else if Speed.X = 0 then
       begin
         Speed := Vector2(-SpeedX, 0.0);
         with Parent as TCastleScene do
@@ -129,7 +140,7 @@ begin
         with Parent as TCastleScene do
           AutoAnimation := 'Recto';
       end
-      else
+      else if Speed.X = 0 then
       begin
         Speed := Vector2(SpeedX, 0.0);
         with Parent as TCastleScene do
@@ -142,7 +153,7 @@ begin
       begin
         Speed := Vector2(0.0, 0.0);
       end
-      else
+      else if Speed.Y = 0 then
       begin
         Speed := Vector2(0.0, SpeedY);
       end;
@@ -155,7 +166,7 @@ begin
       begin
         Speed := Vector2(0.0, 0.0);
       end
-      else
+      else if Speed.Y = 0 then
       begin
         Speed := Vector2(0.0, -SpeedY);
       end;
@@ -166,6 +177,8 @@ begin
       Speed := Vector2(0.0, 0.0);
       with Parent as TCastleScene do
         AutoAnimation := 'Recto';
+      moving := False;
+      Result := False;
   end;
 end;
 
@@ -176,6 +189,7 @@ begin
     (aKey = keyArrowUp) then
   begin
     Speed := Vector2(0.0, 0.0);
+    moving := False;
     with Parent as TCastleScene do
       AutoAnimation := 'Recto';
   end;
@@ -183,8 +197,23 @@ end;
 //Este evento se ejecuta cada vez que se actualiza el juego
 procedure TPlayerBehavior.Update(const SecondsPassed: single;
   var RemoveMe: TRemoveType);
+var
+  TiempoActual: QWord;
 begin
   inherited Update(SecondsPassed, RemoveMe);
+  if moving = False then
+  begin
+    Tiempo := GetTickCount64;
+  end
+  else
+  begin
+    TiempoActual := GetTickCount64 - Tiempo;
+    if TiempoActual > 1000 then
+    begin
+      Speed := Speed * (1.5 + SecondsPassed);
+      Tiempo := GetTickCount64;
+    end;
+  end;
   with Parent do
   begin
     if TranslationXY.X > Area.Derecha then
@@ -210,6 +239,7 @@ begin
     else
     begin
       TranslationXY := TranslationXY + Speed * SecondsPassed;
+      WritelnLog('Speed.x'+FloatToStr(Speed.X));
     end;
     Coordenadas := TranslationXY;
   end;

@@ -13,6 +13,7 @@ type
     Speed: TVector2;
     VelocidadX: single;
     Area: TLimites;
+    Salud: integer;
   published
     constructor Create(AOwner: TComponent); override;
     procedure Update(const SecondsPassed: single; var RemoveMe: TRemoveType); override;
@@ -37,7 +38,7 @@ type
 
 implementation
 
-uses CastleLog, Math, SysUtils;
+uses CastleLog, Math, SysUtils, GamePlayerUnit;
 
 { TEnemyLittlePlane }
 
@@ -110,6 +111,7 @@ begin
   Area := Limite;
   VelocidadX := 100.0;
   Speed := Vector2(0, 25.0);
+  Salud := 100;
 end;
 
 procedure TEnemyBigPlane.Update(const SecondsPassed: single; var RemoveMe: TRemoveType);
@@ -139,20 +141,29 @@ begin
 end;
 
 procedure TEnemyBigPlane.Collision(const CollisionDetails: TPhysicsCollisionDetails);
-
 var
-  t: TCastleTransform;
+  n: SizeInt;
 begin
   { #todo : Comprobar si choca con la bala o con el jugador }
-  t := CollisionDetails.Transforms[1];
-  WritelnLog('Col1:'+CollisionDetails.Transforms[1].NAME);
-  if CollisionDetails.Transforms[1].Name = 'Bullet' then
+
+  WritelnLog('Col1:' + CollisionDetails.OtherTransform.Name);
+  n := Pos('Bullet', CollisionDetails.OtherTransform.Name );
+  if Pos('Bullet', CollisionDetails.OtherTransform.Name ) > 0 then
   begin
-    CollisionDetails.Transforms[1].Free;
+    Salud := Salud - 1;
+    WritelnLog(IntToStr(Salud));
+    CollisionDetails.OtherTransform.Exists := False;
+    CollisionDetails.OtherTransform.Visible := False;
   end;
-  WritelnLog('Colision en el avión');
-  Speed := Vector2(0.0, 0.0);
-  Parent.Parent.RemoveDelayed(Parent, True);
+
+  //  // CollisionDetails.OtherTransform.Name
+  //  if CollisionDetails.Transforms[1].Behaviors[0] is TBulletBehavior then
+  //  begin
+
+  //  end;
+  //  WritelnLog('Colision en el avión');
+  //  Speed := Vector2(0.0, 0.0);
+  //  Parent.Parent.RemoveDelayed(Parent, True);
 end;
 
 end.
